@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="OracleRules_MediatorDynamicRules_execute1">
+    <ruleEngineProvider name="OracleRulesSDK" provider="Oracle_11.0.0.0.0">
+        <repository type="SCA-Archive">
+            <path>LogProcessor/oracle/rules/logprocessor/OracleRules_MediatorDynamicRules_execute1.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService targetNamespace="http://xmlns.oracle.com/OracleRules_MediatorDynamicRules_execute1/OracleRules_MediatorDynamicRules_execute1_RuleService" ruleEngineProviderReference="OracleRulesSDK" name="OracleRules_MediatorDynamicRules_execute1_RuleService">
+        <catalog>OracleRules_MediatorDynamicRules_execute1</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>logprocessor.OracleRules_MediatorDynamicRules_execute1.OracleRules_MediatorDynamicRules_execute1_RuleService</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>logprocessor.OracleRules_MediatorDynamicRules_execute1.OracleRules_MediatorDynamicRules_execute1_RuleService</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+</decisionServices>

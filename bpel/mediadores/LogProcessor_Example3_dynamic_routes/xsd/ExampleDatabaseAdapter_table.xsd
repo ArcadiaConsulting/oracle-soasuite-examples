@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/ExampleDatabaseAdapter" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/ExampleDatabaseAdapter" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="LogsCollection" type="LogsCollection"/>
+   <xs:complexType name="LogsCollection">
+      <xs:sequence>
+         <xs:element name="Logs" type="Logs" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Logs">
+      <xs:sequence>
+         <xs:element name="id" type="xs:int"/>
+         <xs:element name="fecha" type="xs:date" minOccurs="0" nillable="true"/>
+         <xs:element name="mensaje" minOccurs="0" nillable="true">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="100"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

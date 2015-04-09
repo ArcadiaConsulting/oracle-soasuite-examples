@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faultPolicies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="xsd/fault-policies.xsd"
+               xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+  <faultPolicy id="ejemploFaultPolicy">
+    <Conditions>
+      <faultName xmlns:medns="http://schemas.oracle.com/mediator/faults"
+                 name="medns:mediatorFault">
+        <condition>
+          <test>contains($fault.mediatorErrorCode,"TYPE_FATAL_DB")</test>
+          <action ref="ora-retry"/>
+        </condition>
+      </faultName>
+    </Conditions>
+    <Actions>
+      <Action id="ora-retry">
+        <retry>
+          <retryCount>3</retryCount>
+          <retryInterval>2</retryInterval>
+          <retryFailureAction ref="ora-terminate"/>
+        </retry>
+      </Action>
+      <Action id="ora-terminate">
+        <abort/>
+      </Action>
+    </Actions>
+  </faultPolicy>
+</faultPolicies>

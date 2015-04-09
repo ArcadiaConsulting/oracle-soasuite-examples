@@ -1,0 +1,66 @@
+Load of wsdl "DynamicReference_MediatorDynamicRules_execute.wsdl with Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/DynamicReference_MediatorDynamicRules_execute.wsdl] part name = callback	type = {http://xmlns.oracle.com/singleString}singleString" failed
+java.lang.Exception: Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/DynamicReference_MediatorDynamicRules_execute.wsdl] part name = callback	type = {http://xmlns.oracle.com/singleString}singleString
+	at oracle.soa.scac.WSDLValidator.validateMessageParts(WSDLValidator.java:121)
+	at oracle.soa.scac.WSDLValidator.validateMessages(WSDLValidator.java:88)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:47)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:40)
+	at oracle.soa.scac.ValidateComposite.loadWSDLs(ValidateComposite.java:964)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:491)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:150)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:135)
+Load of wsdl "DynamicReference_MediatorDynamicRules_execute.wsdl with Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/MediatorDynamicRules.wsdl] part name = request	type = {http://www.example.org/LogWebservice}log" failed
+java.lang.Exception: Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/MediatorDynamicRules.wsdl] part name = request	type = {http://www.example.org/LogWebservice}log
+	at oracle.soa.scac.WSDLValidator.validateMessageParts(WSDLValidator.java:121)
+	at oracle.soa.scac.WSDLValidator.validateMessages(WSDLValidator.java:88)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:47)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:40)
+	at oracle.soa.scac.ValidateComposite.loadWSDLs(ValidateComposite.java:964)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:491)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:150)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:135)
+Load of wsdl "DynamicReference_MediatorDynamicRules_execute.wsdl with Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/OracleRules_MediatorDynamicRules_execute1_RuleService.wsdl] part name = payload	type = {http://xmlns.oracle.com/OracleRules_MediatorDynamicRules_execute1/OracleRules_MediatorDynamicRules_execute1_RuleService}callFunctionStatelessDecision" failed
+java.lang.Exception: Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/OracleRules_MediatorDynamicRules_execute1_RuleService.wsdl] part name = payload	type = {http://xmlns.oracle.com/OracleRules_MediatorDynamicRules_execute1/OracleRules_MediatorDynamicRules_execute1_RuleService}callFunctionStatelessDecision
+	at oracle.soa.scac.WSDLValidator.validateMessageParts(WSDLValidator.java:121)
+	at oracle.soa.scac.WSDLValidator.validateMessages(WSDLValidator.java:88)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:47)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:40)
+	at oracle.soa.scac.ValidateComposite.loadWSDLs(ValidateComposite.java:964)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:491)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:150)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:135)
+Load of wsdl "DynamicReference_MediatorDynamicRules_execute.wsdl with Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/LogWebservice.wsdl] part name = part1	type = {http://www.example.org/LogWebservice}log" failed
+java.lang.Exception: Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/LogWebservice.wsdl] part name = part1	type = {http://www.example.org/LogWebservice}log
+	at oracle.soa.scac.WSDLValidator.validateMessageParts(WSDLValidator.java:121)
+	at oracle.soa.scac.WSDLValidator.validateMessages(WSDLValidator.java:88)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:47)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:40)
+	at oracle.soa.scac.ValidateComposite.loadWSDLs(ValidateComposite.java:964)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:491)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:150)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:135)
+Load of wsdl "DynamicReference_MediatorDynamicRules_execute.wsdl with Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/ExampleDatabaseAdapter.wsdl] part name = LogsCollection	type = {http://xmlns.oracle.com/pcbpel/adapter/db/top/ExampleDatabaseAdapter}LogsCollection" failed
+java.lang.Exception: Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/ExampleDatabaseAdapter.wsdl] part name = LogsCollection	type = {http://xmlns.oracle.com/pcbpel/adapter/db/top/ExampleDatabaseAdapter}LogsCollection
+	at oracle.soa.scac.WSDLValidator.validateMessageParts(WSDLValidator.java:121)
+	at oracle.soa.scac.WSDLValidator.validateMessages(WSDLValidator.java:88)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:47)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:40)
+	at oracle.soa.scac.ValidateComposite.loadWSDLs(ValidateComposite.java:964)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:491)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:150)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:135)
+Load of wsdl "DynamicReference_MediatorDynamicRules_execute.wsdl with Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/ExampleFileAdapter.wsdl] part name = opaque	type = {http://xmlns.oracle.com/pcbpel/adapter/opaque/}opaqueElement" failed
+java.lang.Exception: Message part element undefined in wsdl [file:/home/jgutierrez/oscar/Artículo%20Oracle%20SOA%20Suite%20-%20%20Mediators/MediatorExamplesApplication/LogProcessor/ExampleFileAdapter.wsdl] part name = opaque	type = {http://xmlns.oracle.com/pcbpel/adapter/opaque/}opaqueElement
+	at oracle.soa.scac.WSDLValidator.validateMessageParts(WSDLValidator.java:121)
+	at oracle.soa.scac.WSDLValidator.validateMessages(WSDLValidator.java:88)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:47)
+	at oracle.soa.scac.WSDLValidator.validate(WSDLValidator.java:40)
+	at oracle.soa.scac.ValidateComposite.loadWSDLs(ValidateComposite.java:964)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:491)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:150)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:135)
+08-abr-2015 16:32:59 oracle.adf.share.ADFContext getCurrent
+ADVERTENCIA: Automatically initializing a DefaultContext for getCurrent.
+Caller should ensure that a DefaultContext is proper for this use.
+Memory leaks and/or unexpected behaviour may occur if the automatic initialization is performed improperly.
+This message may be avoided by performing initADFContext before using getCurrent().
+To see the stack trace for thread that is initializing this, set the logging level of oracle.adf.share.ADFContext to FINEST

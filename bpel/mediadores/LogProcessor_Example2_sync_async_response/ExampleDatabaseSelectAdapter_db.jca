@@ -1,0 +1,14 @@
+<adapter-config name="ExampleDatabaseSelectAdapter" adapter="Database Adapter" wsdlLocation="ExampleDatabaseSelectAdapter.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/Connection2" UIConnectionName="Connection2" adapterRef=""/>
+  <endpoint-interaction portType="ExampleDatabaseSelectAdapter_ptt" operation="ExampleDatabaseSelectAdapterSelect">
+    <interaction-spec className="oracle.tip.adapter.db.DBReadInteractionSpec">
+      <property name="DescriptorName" value="ExampleDatabaseSelectAdapter.Logs"/>
+      <property name="QueryName" value="ExampleDatabaseSelectAdapterSelect"/>
+      <property name="MappingsMetaDataURL" value="ExampleDatabaseSelectAdapter-or-mappings.xml"/>
+      <property name="ReturnSingleResultSet" value="false"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

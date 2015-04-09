@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<faultPolicyBindings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="xsd/fault-bindings.xsd"
+                     xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+  <component faultPolicy="ejemploFaultPolicy">
+    <name>Mediator1</name>
+  </component>
+</faultPolicyBindings>

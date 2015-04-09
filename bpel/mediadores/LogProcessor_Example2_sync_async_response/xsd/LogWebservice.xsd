@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:logws="http://www.example.org/LogWebservice"
+            targetNamespace="http://www.example.org/LogWebservice"
+            elementFormDefault="qualified">
+  <xsd:element name="log">
+    <xsd:annotation>
+      <xsd:documentation>
+        A sample element
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="logMessage" type="logws:logMessageType"
+        minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="logMessageType">
+    <xsd:sequence>
+      <xsd:element name="date" type="xsd:date"/>
+      <xsd:element name="logLevel">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="DEBUG" />
+                <xsd:enumeration value="INFO" />
+                <xsd:enumeration value="ERROR" />
+            </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="message" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
