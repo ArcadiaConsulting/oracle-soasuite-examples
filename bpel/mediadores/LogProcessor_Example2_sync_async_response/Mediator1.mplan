@@ -11,6 +11,10 @@
           <expression>$in.part1/inp1:log/inp1:logMessage/inp1:logLevel='DEBUG'  or  $in.part1/inp1:log/inp1:logMessage/inp1:logLevel='INFO'</expression>
         </condition>
         <action>
+          <transform>
+            <part name="$out.body"
+                  function="xslt(xsl/log_To_log.xsl, $in.part1)"/>
+          </transform>
           <invoke reference="ExampleFileAdapter" operation="Write"/>
         </action>
       </case>

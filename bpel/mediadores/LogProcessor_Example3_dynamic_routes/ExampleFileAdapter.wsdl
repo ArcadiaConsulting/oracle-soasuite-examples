@@ -2,9 +2,9 @@
      name="ExampleFileAdapter"
      targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/file/MediatorExamples/LogProcessor/ExampleFileAdapter"
      xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
-     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
      xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/file/MediatorExamples/LogProcessor/ExampleFileAdapter"
-     xmlns:opaque="http://xmlns.oracle.com/pcbpel/adapter/opaque/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:imp1="http://www.example.org/LogWebservice"
      xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
     >
   <plt:partnerLinkType name="Write_plt" >
@@ -13,13 +13,13 @@
     </plt:role>
   </plt:partnerLinkType>
     <wsdl:types>
-    <schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/opaque/"
-            xmlns="http://www.w3.org/2001/XMLSchema" >
-      <element name="opaqueElement" type="base64Binary" />
-    </schema>
+      <schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/file/MediatorExamples/LogProcessor/ExampleFileAdapter"
+              xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://www.example.org/LogWebservice" schemaLocation="xsd/LogWebservice.xsd" />
+      </schema>
     </wsdl:types>
     <wsdl:message name="Write_msg">
-        <wsdl:part name="opaque" element="opaque:opaqueElement"/>
+        <wsdl:part name="body" element="imp1:log"/>
     </wsdl:message>
     <wsdl:portType name="Write_ptt">
         <wsdl:operation name="Write">
