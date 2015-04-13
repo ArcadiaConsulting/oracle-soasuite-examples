@@ -12,6 +12,6 @@
    <entry key="root_descriptor_alias">LOGS</entry>
    <entry key="LOGS.mensaje:db_column_type">VARCHAR</entry>
    <entry key="LOGS.id:db_column_not_null">true</entry>
-   <entry key="LOGS.id:db_column_size">10</entry>
    <entry key="LOGS:db_table_type">TABLE</entry>
+   <entry key="LOGS.id:db_column_size">10</entry>
 </properties>

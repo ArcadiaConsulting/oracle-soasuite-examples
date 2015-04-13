@@ -55,7 +55,7 @@
       </class-mapping-descriptor>
    </class-mapping-descriptors>
    <login xsi:type="database-login">
-      <platform-class>org.eclipse.persistence.platform.database.MySQLPlatform</platform-class>
+      <platform-class>org.eclipse.persistence.platform.database.oracle.Oracle9Platform</platform-class>
       <user-name></user-name>
       <connection-url></connection-url>
    </login>
