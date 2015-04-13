@@ -16,6 +16,7 @@
     <wsdl:portType name="ExampleDatabaseAdapter_ptt">
         <wsdl:operation name="insert">
             <wsdl:input message="tns:LogsCollection_msg"/>
+            <wsdl:output message="tns:LogsCollection_msg"/>
         </wsdl:operation>
     </wsdl:portType>
 </wsdl:definitions>

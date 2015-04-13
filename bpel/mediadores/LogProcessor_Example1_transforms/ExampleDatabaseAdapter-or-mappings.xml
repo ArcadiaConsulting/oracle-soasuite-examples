@@ -37,6 +37,10 @@
             </attribute-mapping>
          </attribute-mappings>
          <descriptor-type>independent</descriptor-type>
+         <sequencing>
+            <sequence-name>logs_id_sequence</sequence-name>
+            <sequence-field table="LOGS" name="id"/>
+         </sequencing>
          <caching>
             <cache-type>weak-reference</cache-type>
             <cache-size>-1</cache-size>
@@ -55,7 +59,7 @@
       </class-mapping-descriptor>
    </class-mapping-descriptors>
    <login xsi:type="database-login">
-      <platform-class>org.eclipse.persistence.platform.database.MySQLPlatform</platform-class>
+      <platform-class>org.eclipse.persistence.platform.database.oracle.Oracle10Platform</platform-class>
       <user-name></user-name>
       <connection-url></connection-url>
    </login>
