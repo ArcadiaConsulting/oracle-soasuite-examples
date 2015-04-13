@@ -1,6 +1,6 @@
 <adapter-config name="ExampleDatabaseSelectAdapter" adapter="Database Adapter" wsdlLocation="ExampleDatabaseSelectAdapter.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
   
-  <connection-factory location="eis/DB/Connection2" UIConnectionName="Connection2" adapterRef=""/>
+  <connection-factory location="eis/DB/soademoDatabase" UIConnectionName="ConnectionSOADemo" adapterRef=""/>
   <endpoint-interaction portType="ExampleDatabaseSelectAdapter_ptt" operation="ExampleDatabaseSelectAdapterSelect">
     <interaction-spec className="oracle.tip.adapter.db.DBReadInteractionSpec">
       <property name="DescriptorName" value="ExampleDatabaseSelectAdapter.Logs"/>
