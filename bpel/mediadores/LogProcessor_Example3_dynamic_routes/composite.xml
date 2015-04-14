@@ -10,45 +10,59 @@
            xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
            xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
            xmlns:ui="http://xmlns.oracle.com/soa/designer/">
-  <import namespace="http://oracle.com/sca/soapservice/MediatorExamples/LogProcessor/LogWebservice"
-          location="LogWebservice.wsdl" importType="wsdl"/>
   <import namespace="http://xmlns.oracle.com/pcbpel/adapter/file/MediatorExamples/LogProcessor/ExampleFileAdapter"
           location="ExampleFileAdapter.wsdl" importType="wsdl"/>
   <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/MediatorExamples/LogProcessor/ExampleDatabaseAdapter"
           location="ExampleDatabaseAdapter.wsdl" importType="wsdl"/>
-  <import namespace="http://xmlns.oracle.com/MediatorExamples/LogProcessor/MediatorDynamicRules"
+  <import namespace="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/MediatorDynamicRules"
           location="MediatorDynamicRules.wsdl" importType="wsdl"/>
   <import namespace="http://xmlns.oracle.com/OracleRules_MediatorDynamicRules_execute1/OracleRules_MediatorDynamicRules_execute1_RuleService"
           location="OracleRules_MediatorDynamicRules_execute1_RuleService.wsdl"
           importType="wsdl"/>
-  <import namespace="http://xmlns.oracle.com/MediatorExamples/LogProcessor/DynamicReference_MediatorDynamicRules_execute"
+  <import namespace="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DynamicReference_MediatorDynamicRules_execute"
           location="DynamicReference_MediatorDynamicRules_execute.wsdl"
           importType="wsdl"/>
-  <service name="LogWebservice" ui:wsdlLocation="LogWebservice.wsdl">
-    <interface.wsdl interface="http://oracle.com/sca/soapservice/MediatorExamples/LogProcessor/LogWebservice#wsdl.interface(execute_ptt)"/>
-    <binding.ws port="http://oracle.com/sca/soapservice/MediatorExamples/LogProcessor/LogWebservice#wsdl.endpoint(LogWebservice/execute_pt)">
-      <property name="weblogic.wsee.wsat.transaction.flowOption"
-                type="xs:string" many="false">NEVER</property>
-    </binding.ws>
-  </service>
+  <import namespace="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/FileMediator"
+          location="FileMediator.wsdl" importType="wsdl"/>
+  <import namespace="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DatabaseMediator"
+          location="DatabaseMediator.wsdl" importType="wsdl"/>
   <service name="MediatorDynamicRules_ep"
            ui:wsdlLocation="MediatorDynamicRules.wsdl">
-    <interface.wsdl interface="http://xmlns.oracle.com/MediatorExamples/LogProcessor/MediatorDynamicRules#wsdl.interface(execute_ptt)"
-                    callbackInterface="http://xmlns.oracle.com/MediatorExamples/LogProcessor/MediatorDynamicRules#wsdl.interface(callback_ptt)"/>
-    <binding.ws port="http://xmlns.oracle.com/MediatorExamples/LogProcessor/MediatorDynamicRules#wsdl.endpoint(MediatorDynamicRules_ep/execute_pt)"/>
+    <interface.wsdl interface="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/MediatorDynamicRules#wsdl.interface(execute_ptt)"
+                    callbackInterface="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/MediatorDynamicRules#wsdl.interface(callback_ptt)"/>
+    <binding.ws port="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/MediatorDynamicRules#wsdl.endpoint(MediatorDynamicRules_ep/execute_pt)"/>
     <callback>
-      <binding.ws port="http://xmlns.oracle.com/MediatorExamples/LogProcessor/MediatorDynamicRules#wsdl.endpoint(MediatorDynamicRules_ep/callback_pt)"/>
+      <binding.ws port="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/MediatorDynamicRules#wsdl.endpoint(MediatorDynamicRules_ep/callback_pt)"/>
     </callback>
   </service>
-  <component name="Mediator1">
-    <implementation.mediator src="Mediator1.mplan"/>
-  </component>
+  <service name="FileMediator_ep" ui:wsdlLocation="FileMediator.wsdl">
+    <interface.wsdl interface="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/FileMediator#wsdl.interface(execute_ptt)"
+                    callbackInterface="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/FileMediator#wsdl.interface(callback_ptt)"/>
+    <binding.ws port="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/FileMediator#wsdl.endpoint(FileMediator_ep/execute_pt)"/>
+    <callback>
+      <binding.ws port="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/FileMediator#wsdl.endpoint(FileMediator_ep/callback_pt)"/>
+    </callback>
+  </service>
+  <service name="DatabaseMediator_ep" ui:wsdlLocation="DatabaseMediator.wsdl">
+    <interface.wsdl interface="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DatabaseMediator#wsdl.interface(execute_ptt)"
+                    callbackInterface="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DatabaseMediator#wsdl.interface(callback_ptt)"/>
+    <binding.ws port="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DatabaseMediator#wsdl.endpoint(DatabaseMediator_ep/execute_pt)"/>
+    <callback>
+      <binding.ws port="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DatabaseMediator#wsdl.endpoint(DatabaseMediator_ep/callback_pt)"/>
+    </callback>
+  </service>
   <component name="MediatorDynamicRules">
     <implementation.mediator src="MediatorDynamicRules.mplan"/>
   </component>
   <component name="OracleRules_MediatorDynamicRules_execute1"
              implementationDetailFor="MediatorDynamicRules">
     <implementation.decision src="OracleRules_MediatorDynamicRules_execute1.decs"/>
+  </component>
+  <component name="FileMediator">
+    <implementation.mediator src="FileMediator.mplan"/>
+  </component>
+  <component name="DatabaseMediator">
+    <implementation.mediator src="DatabaseMediator.mplan"/>
   </component>
   <reference name="ExampleFileAdapter"
              ui:wsdlLocation="ExampleFileAdapter.wsdl">
@@ -70,24 +84,12 @@
   <reference name="DynamicReference_MediatorDynamicRules_execute"
              ui:wsdlLocation="DynamicReference_MediatorDynamicRules_execute.wsdl"
              implementationDetailFor="MediatorDynamicRules">
-    <interface.wsdl interface="http://xmlns.oracle.com/MediatorExamples/LogProcessor/DynamicReference_MediatorDynamicRules_execute#wsdl.interface(execute_ptt)"
-                    callbackInterface="http://xmlns.oracle.com/MediatorExamples/LogProcessor/DynamicReference_MediatorDynamicRules_execute#wsdl.interface(callback_ptt)"/>
-    <binding.ws port="http://xmlns.oracle.com/MediatorExamples/LogProcessor/DynamicReference_MediatorDynamicRules_execute#wsdl.endpoint(dynamic/execute_ptt)"
+    <interface.wsdl interface="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DynamicReference_MediatorDynamicRules_execute#wsdl.interface(execute_ptt)"
+                    callbackInterface="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DynamicReference_MediatorDynamicRules_execute#wsdl.interface(callback_ptt)"/>
+    <binding.ws port="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DynamicReference_MediatorDynamicRules_execute#wsdl.endpoint(dynamic/execute_ptt)"
                 location="DynamicReference_MediatorDynamicRules_execute.wsdl"
                 soapVersion="1.1"/>
   </reference>
-  <wire>
-    <source.uri>LogWebservice</source.uri>
-    <target.uri>Mediator1/Mediator1</target.uri>
-  </wire>
-  <wire>
-    <source.uri>Mediator1/ExampleFileAdapter</source.uri>
-    <target.uri>ExampleFileAdapter</target.uri>
-  </wire>
-  <wire>
-    <source.uri>Mediator1/ExampleDatabaseAdapter</source.uri>
-    <target.uri>ExampleDatabaseAdapter</target.uri>
-  </wire>
   <wire>
     <source.uri>MediatorDynamicRules_ep</source.uri>
     <target.uri>MediatorDynamicRules/MediatorDynamicRules</target.uri>
@@ -99,5 +101,21 @@
   <wire>
     <source.uri>MediatorDynamicRules/DynamicReference_MediatorDynamicRules_execute</source.uri>
     <target.uri>DynamicReference_MediatorDynamicRules_execute</target.uri>
+  </wire>
+  <wire>
+    <source.uri>FileMediator_ep</source.uri>
+    <target.uri>FileMediator/FileMediator</target.uri>
+  </wire>
+  <wire>
+    <source.uri>FileMediator/ExampleFileAdapter</source.uri>
+    <target.uri>ExampleFileAdapter</target.uri>
+  </wire>
+  <wire>
+    <source.uri>DatabaseMediator_ep</source.uri>
+    <target.uri>DatabaseMediator/DatabaseMediator</target.uri>
+  </wire>
+  <wire>
+    <source.uri>DatabaseMediator/ExampleDatabaseAdapter</source.uri>
+    <target.uri>ExampleDatabaseAdapter</target.uri>
   </wire>
 </composite>

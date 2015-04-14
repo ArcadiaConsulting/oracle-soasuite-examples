@@ -1,11 +1,11 @@
 <?xml version= '1.0' encoding= 'UTF-8' ?>
 <wsdl:definitions
      name="MediatorDynamicRules"
-     targetNamespace="http://xmlns.oracle.com/MediatorExamples/LogProcessor/MediatorDynamicRules"
+     targetNamespace="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/MediatorDynamicRules"
      xmlns:inp2="http://xmlns.oracle.com/singleString"
      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
      xmlns:inp1="http://www.example.org/LogWebservice"
-     xmlns:tns="http://xmlns.oracle.com/MediatorExamples/LogProcessor/MediatorDynamicRules"
+     xmlns:tns="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/MediatorDynamicRules"
     >
     <wsdl:types>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -15,20 +15,20 @@
             <xsd:import namespace="http://xmlns.oracle.com/singleString" schemaLocation="xsd/singleString.xsd"/>
         </xsd:schema>
     </wsdl:types>
-    <wsdl:message name="requestMessage">
-        <wsdl:part name="request" element="inp1:log"/>
-    </wsdl:message>
     <wsdl:message name="callbackMessage">
         <wsdl:part name="callback" element="inp2:singleString"/>
     </wsdl:message>
-    <wsdl:portType name="execute_ptt">
-        <wsdl:operation name="execute">
-            <wsdl:input message="tns:requestMessage"/>
-        </wsdl:operation>
-    </wsdl:portType>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="request" element="inp1:log"/>
+    </wsdl:message>
     <wsdl:portType name="callback_ptt">
         <wsdl:operation name="callback">
             <wsdl:input message="tns:callbackMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="execute_ptt">
+        <wsdl:operation name="execute">
+            <wsdl:input message="tns:requestMessage"/>
         </wsdl:operation>
     </wsdl:portType>
 </wsdl:definitions>

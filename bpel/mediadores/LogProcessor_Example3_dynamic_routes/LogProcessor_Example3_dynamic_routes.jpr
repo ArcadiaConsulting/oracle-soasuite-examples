@@ -60,7 +60,13 @@
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
       <string v="oracle.bpm.fusion.repository.BPMProjectSettings/bpmProjectsProcessesContentSet"/>
    </list>
+   <url n="DatabaseAdapterService_bpelFileURL" path="DatabaseAdapterService.bpel"/>
+   <value n="DatabaseAdapterService_Namespace" v="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DatabaseAdapterService"/>
+   <value n="DatabaseAdapterService_ProcessName" v="DatabaseAdapterService"/>
+   <value n="DatabaseAdapterService_Template" v="BPEL_ASYNC_PROCESS"/>
+   <value n="DatabaseAdapterService_wsdl" v="DatabaseAdapterService.wsdl"/>
    <value n="defaultPackage" v="logprocessor"/>
+   <value n="Namespace" v="http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/DatabaseAdapterService"/>
    <hash n="oracle.ide.model.ResourcePaths">
       <hash n="resourcesContentSet">
          <list n="url-path"/>
@@ -398,4 +404,16 @@
          </list>
       </hash>
    </hash>
+   <hash n="oracle.toplink.workbench.addin">
+      <hash n="toplinkContentSet">
+         <list n="pattern-filters">
+            <string v="+**"/>
+         </list>
+         <list n="url-path">
+            <url path="toplink/"/>
+         </list>
+      </hash>
+   </hash>
+   <value n="ProcessName" v="DatabaseAdapterService"/>
+   <value n="Template" v="BPEL_ASYNC_PROCESS"/>
 </jpr:project>
