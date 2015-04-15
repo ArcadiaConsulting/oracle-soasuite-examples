@@ -7,7 +7,6 @@
       <faultName xmlns:medns="http://schemas.oracle.com/mediator/faults"
                  name="medns:mediatorFault">
         <condition>
-          <test>contains($fault.mediatorErrorCode,"TYPE_FATAL_DB")</test>
           <action ref="ora-retry"/>
         </condition>
       </faultName>
