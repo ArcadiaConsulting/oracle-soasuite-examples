@@ -25,7 +25,7 @@
         <action>
           <transform>
             <part name="$out.LogsCollection"
-                  function="xslt(xsl/log_To_LogsCollection.xsl, $in.part1)"/>
+                  function="xslt(xsl/log_To_LogsCollection_2.xsl, $in.part1)"/>
           </transform>
           <invoke reference="ExampleDatabaseAdapter" operation="insert"/>
         </action>
