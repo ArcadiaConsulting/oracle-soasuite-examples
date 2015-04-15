@@ -4,10 +4,12 @@
    <value n="AsyncBPEL_ProcessName" v="AsyncBPEL"/>
    <value n="AsyncBPEL_Template" v="BPEL_ASYNC_PROCESS"/>
    <value n="AsyncBPEL_wsdl" v="AsyncBPEL.wsdl"/>
+   <url n="BPEL_Async_bpelFileURL" path="BPEL_Async.bpel"/>
    <value n="BPEL_Async_Namespace" v="http://xmlns.oracle.com/MediatorExamples/LogProcessor/BPEL_Async"/>
    <value n="BPEL_Async_ProcessName" v="BPEL_Async"/>
    <value n="BPEL_Async_Template" v="BPEL_ASYNC_PROCESS"/>
    <value n="BPEL_Async_wsdl" v="BPEL_Async.wsdl"/>
+   <url n="BPEL_Sync_bpelFileURL" path="BPEL_Sync.bpel"/>
    <value n="BPEL_Sync_Namespace" v="http://xmlns.oracle.com/MediatorExamples/LogProcessor/BPEL_Sync"/>
    <value n="BPEL_Sync_ProcessName" v="BPEL_Sync"/>
    <value n="BPEL_Sync_Template" v="BPEL_SYNC_PROCESS"/>
@@ -81,7 +83,7 @@
       <string v="oracle.bpm.fusion.repository.BPMProjectSettings/bpmProjectsProcessesContentSet"/>
    </list>
    <value n="defaultPackage" v="logprocessor"/>
-   <value n="Namespace" v="http://xmlns.oracle.com/MediatorExamples/LogProcessor/BPEL_Async"/>
+   <value n="Namespace" v="http://xmlns.oracle.com/MediatorExamples/LogProcessor/BPEL_Sync"/>
    <hash n="oracle.ide.model.ResourcePaths">
       <hash n="resourcesContentSet">
          <list n="url-path"/>
@@ -371,10 +373,20 @@
          </list>
       </hash>
    </hash>
-   <value n="ProcessName" v="BPEL_Async"/>
+   <hash n="oracle.toplink.workbench.addin">
+      <hash n="toplinkContentSet">
+         <list n="pattern-filters">
+            <string v="+**"/>
+         </list>
+         <list n="url-path">
+            <url path="toplink/"/>
+         </list>
+      </hash>
+   </hash>
+   <value n="ProcessName" v="BPEL_Sync"/>
    <value n="SyncBPEL_Namespace" v="http://xmlns.oracle.com/MediatorExamples/LogProcessor/SyncBPEL"/>
    <value n="SyncBPEL_ProcessName" v="SyncBPEL"/>
    <value n="SyncBPEL_Template" v="BPEL_SYNC_PROCESS"/>
    <value n="SyncBPEL_wsdl" v="SyncBPEL.wsdl"/>
-   <value n="Template" v="BPEL_ASYNC_PROCESS"/>
+   <value n="Template" v="BPEL_SYNC_PROCESS"/>
 </jpr:project>
