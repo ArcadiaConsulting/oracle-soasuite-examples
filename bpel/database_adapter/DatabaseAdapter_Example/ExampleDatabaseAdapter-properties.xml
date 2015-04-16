@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+   <entry key="LOGS.ID:db_column_not_null">true</entry>
+   <entry key="LOGS:db_column_2">MENSAJE</entry>
+   <entry key="LOGS.MENSAJE:db_column_type">VARCHAR2</entry>
+   <entry key="LOGS:db_column_1">FECHA</entry>
+   <entry key="LOGS:db_column_0">ID</entry>
+   <entry key="LOGS.FECHA:db_column_type">DATE</entry>
+   <entry key="LOGS.MENSAJE:db_column_not_null">false</entry>
+   <entry key="LOGS.MENSAJE:db_column_size">100</entry>
+   <entry key="LOGS.ID:db_column_type">NUMBER</entry>
+   <entry key="root_descriptor_alias">LOGS</entry>
+   <entry key="LOGS.ID:db_column_precision">0</entry>
+   <entry key="LOGS:db_table_type">TABLE</entry>
+   <entry key="LOGS.FECHA:db_column_not_null">false</entry>
+</properties>

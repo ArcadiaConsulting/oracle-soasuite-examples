@@ -1,0 +1,22 @@
+<?binding.jca ExampleDatabaseAdapter_db.jca?>
+<wsdl:definitions name="ExampleDatabaseAdapter" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/MediatorExamplesGithubApplication/DatabaseAdapter_Example/ExampleDatabaseAdapter" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/MediatorExamplesGithubApplication/DatabaseAdapter_Example/ExampleDatabaseAdapter" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/ExampleDatabaseAdapter">
+    <plt:partnerLinkType name="ExampleDatabaseAdapter_plt">
+        <plt:role name="ExampleDatabaseAdapter_role">
+            <plt:portType name="tns:ExampleDatabaseAdapter_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/ExampleDatabaseAdapter" schemaLocation="xsd/ExampleDatabaseAdapter_table.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="LogsCollection_msg">
+        <wsdl:part name="LogsCollection" element="top:LogsCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="ExampleDatabaseAdapter_ptt">
+        <wsdl:operation name="insert">
+            <wsdl:input message="tns:LogsCollection_msg"/>
+            <wsdl:output message="tns:LogsCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
