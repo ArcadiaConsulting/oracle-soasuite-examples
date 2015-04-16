@@ -1,11 +1,11 @@
-<adapter-config name="ExampleFileAdapter" adapter="File Adapter" wsdlLocation="ExampleFileAdapter.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+<adapter-config name="FileAdapter_Example" adapter="File Adapter" wsdlLocation="FileAdapter_Example.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
   
   <connection-factory location="eis/FileAdapter"/>
   <endpoint-interaction portType="Write_ptt" operation="Write">
     <interaction-spec className="oracle.tip.adapter.file.outbound.FileInteractionSpec">
-      <property name="PhysicalDirectory" value="/tmp/mediator_adapter_example"/>
+      <property name="PhysicalDirectory" value="/tmp/fileadapter_example"/>
       <property name="Append" value="false"/>
-      <property name="FileNamingConvention" value="po_%SEQ%.txt"/>
+      <property name="FileNamingConvention" value="po%SEQ%.txt"/>
       <property name="NumberMessages" value="1"/>
     </interaction-spec>
   </endpoint-interaction>

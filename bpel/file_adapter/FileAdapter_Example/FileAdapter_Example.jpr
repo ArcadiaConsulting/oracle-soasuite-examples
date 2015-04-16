@@ -60,7 +60,7 @@
       <string v="oracle.bpm.fusion.repository.BPMProjectSettings/bpmProjectsProcessesContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
-   <value n="defaultPackage" v="project1"/>
+   <value n="defaultPackage" v="fileadapter_example"/>
    <hash n="oracle.ide.model.ResourcePaths">
       <hash n="resourcesContentSet">
          <list n="url-path"/>
@@ -113,7 +113,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="Project1">
+         <hash n="FileAdapter_Example">
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
@@ -255,21 +255,21 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/sca_Project1${composite.revision_id}.jar"/>
+            <url n="jarURL" path="deploy/sca_FileAdapter_Example${composite.revision_id}.jar"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="profileClass" v="oracle.tip.tools.ide.fabric.deploy.sar.SarProfile"/>
-            <value n="profileName" v="Project1"/>
+            <value n="profileName" v="FileAdapter_Example"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="Project1"/>
+         <string v="FileAdapter_Example"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="FileAdapter_Example-Project1-webapp"/>
-      <value n="j2eeWebContextRoot" v="FileAdapter_Example-Project1-context-root"/>
+      <value n="j2eeWebAppName" v="MediatorExamplesGithubApplication-FileAdapter_Example-webapp"/>
+      <value n="j2eeWebContextRoot" v="MediatorExamplesGithubApplication-FileAdapter_Example-context-root"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">
