@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="Ejemplo3" resourceRoot="${projectDir}" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="200508" name="execute_pttBinding" type="wsdl" bindingName="{http://xmlns.oracle.com/MediatorExamplesGithubApplication/LogProcessor_Example3_dynamic_routes/MediatorDynamicRules}execute_pttBinding" soapVersion="1_1" anonymous="optional" definition="http://soabpm-vm:7001//soa-infra/services/default/LogProcessor/MediatorDynamicRules_ep?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://soabpm-vm:7001//soa-infra/services/default/LogProcessor/MediatorDynamicRules_ep?WSDL"><con:part><con:url>http://soabpm-vm:7001//soa-infra/services/default/LogProcessor/MediatorDynamicRules_ep?WSDL</con:url><con:content><![CDATA[<html>
+  <head>
+    <title>Web Service</title>
+  </head>
+  <body>
+    <h2>WSDLException: faultCode=INVALID_WSDL: there is no WSDL associated with the provider: FabricProvider</h2>
+  </body>
+</html>]]></con:content><con:type/></con:part></con:definitionCache><con:endpoints><con:endpoint>http://soabpm-vm.site:7001/soa-infra/services/default/LogProcessor/MediatorDynamicRules_ep</con:endpoint></con:endpoints><con:operation isOneWay="false" action="execute" name="execute" bindingOperationName="execute" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request DEBUG" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soabpm-vm.site:7001/soa-infra/services/default/LogProcessor/MediatorDynamicRules_ep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:log="http://www.example.org/LogWebservice">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <log:log>
+         <log:logMessage>
+            <log:date>14-04-2015</log:date>
+            <log:logLevel>DEBUG</log:logLevel>
+            <log:message>Test3</log:message>
+         </log:logMessage>
+      </log:log>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="execute"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request ERROR" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soabpm-vm.site:7001/soa-infra/services/default/LogProcessor/MediatorDynamicRules_ep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:log="http://www.example.org/LogWebservice">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <log:log>
+         <log:logMessage>
+            <log:date>14-04-2015</log:date>
+            <log:logLevel>ERROR</log:logLevel>
+            <log:message>Test3</log:message>
+         </log:logMessage>
+      </log:log>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="execute"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request INFO" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soabpm-vm.site:7001/soa-infra/services/default/LogProcessor/MediatorDynamicRules_ep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:log="http://www.example.org/LogWebservice">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <log:log>
+         <log:logMessage>
+            <log:date>14-04-2015</log:date>
+            <log:logLevel>DEBUG</log:logLevel>
+            <log:message>Test3</log:message>
+         </log:logMessage>
+      </log:log>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
