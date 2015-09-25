@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="Services/GestionSolicitudes/Interface/GestionSolicitudes"/>
+      <con:binding>
+        <con:name>GestionSolicitudesSOAP</con:name>
+        <con:namespace>http://www.example.org/GestionSolicitudes/</con:namespace>
+      </con:binding>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/Services/GestionSolicitudes/Proxy/GestionSolicitudes-Px</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router>
+    <con:pipeline type="request" name="AltaPipelinePairNode_request">
+      <con:stage name="stage1">
+        <con:context/>
+        <con:actions>
+          <con1:wsCallout>
+            <con2:id>_ActionId-8542635592011256769--70d081c8.14d04369cbf.-7faa</con2:id>
+            <con1:service xsi:type="ref:ProxyRef" ref="Services/GestionSolicitudes/Proxy/Alta-Px" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con1:request>
+              <con1:body wrapped="true">$body</con1:body>
+            </con1:request>
+            <con1:response>
+              <con1:body wrapped="true">body</con1:body>
+            </con1:response>
+            <con1:requestTransform/>
+            <con1:responseTransform/>
+          </con1:wsCallout>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="AltaPipelinePairNode_response"/>
+    <con:pipeline type="request" name="NotificacionPipelinePairNode_request">
+      <con:stage name="stage1">
+        <con:context/>
+        <con:actions>
+          <con1:wsCallout>
+            <con2:id>_ActionId-8542635592011256769--70d081c8.14d04369cbf.-7f80</con2:id>
+            <con1:service xsi:type="ref:ProxyRef" ref="Services/GestionSolicitudes/Proxy/Notificacion-Px" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con1:request>
+              <con1:body wrapped="true">$body</con1:body>
+            </con1:request>
+            <con1:response>
+              <con1:body wrapped="true">body</con1:body>
+            </con1:response>
+            <con1:requestTransform/>
+            <con1:responseTransform/>
+          </con1:wsCallout>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="NotificacionPipelinePairNode_response"/>
+    <con:pipeline type="request" name="CancelacionPipelinePairNode_request">
+      <con:stage name="stage1">
+        <con:context/>
+        <con:actions>
+          <con1:wsCallout>
+            <con2:id>_ActionId-8542635592011256769--70d081c8.14d04369cbf.-7f64</con2:id>
+            <con1:service xsi:type="ref:ProxyRef" ref="Services/GestionSolicitudes/Proxy/Cancelacion-Px" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con1:request>
+              <con1:body wrapped="true">$body</con1:body>
+            </con1:request>
+            <con1:response>
+              <con1:body wrapped="true">body</con1:body>
+            </con1:response>
+            <con1:requestTransform/>
+            <con1:responseTransform/>
+          </con1:wsCallout>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="CancelacionPipelinePairNode_response"/>
+    <con:flow>
+      <con:branch-node type="operation" name="BranchNode1">
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="Alta">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="AltaPipelinePairNode">
+                <con:request>AltaPipelinePairNode_request</con:request>
+                <con:response>AltaPipelinePairNode_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:branch>
+          <con:branch name="Notificacion">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="NotificacionPipelinePairNode">
+                <con:request>NotificacionPipelinePairNode_request</con:request>
+                <con:response>NotificacionPipelinePairNode_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:branch>
+          <con:branch name="Cancelacion">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="CancelacionPipelinePairNode">
+                <con:request>CancelacionPipelinePairNode_request</con:request>
+                <con:response>CancelacionPipelinePairNode_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow/>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

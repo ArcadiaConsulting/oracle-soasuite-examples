@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/GestionErrores/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GestionErrores" targetNamespace="http://www.example.org/GestionErrores/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.example.org/GestionErrores/" schemaLocation="GestionErrores.xsd"></xsd:import>
+   </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ErrorRequest">
+    <wsdl:part element="tns:Error" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ErrorResponse">
+    <wsdl:part element="tns:ErrorResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="GestionErrores">
+    <wsdl:operation name="Error">
+      <wsdl:input message="tns:ErrorRequest"/>
+      <wsdl:output message="tns:ErrorResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestionErroresSOAP" type="tns:GestionErrores">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Error">
+      <soap:operation soapAction="http://www.example.org/GestionErrores/Error"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionErrores">
+    <wsdl:port binding="tns:GestionErroresSOAP" name="GestionErroresSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

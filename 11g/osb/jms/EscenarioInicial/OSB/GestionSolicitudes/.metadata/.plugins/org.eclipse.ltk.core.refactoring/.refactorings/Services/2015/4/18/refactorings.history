@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Services/GestionSolicitudes/Business/Notificacion-Bs.biz&apos; to &apos;Notificacion_JMS-Bs.biz&apos;" description="Rename resource &apos;Notificacion-Bs.biz&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="GestionSolicitudes/Business/Notificacion-Bs.biz" name="Notificacion_JMS-Bs.biz" stamp="1430294796637" updateReferences="true"/>
+</session>

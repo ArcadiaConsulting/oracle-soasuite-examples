@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:wsdlEntry xmlns:con="http://www.bea.com/wli/sb/resources/config">
+    <con:wsdl><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/GestionSolicitudes/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GestionSolicitudes" targetNamespace="http://www.example.org/GestionSolicitudes/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.example.org/GestionSolicitudes/" schemaLocation="GestionSolicitudes.xsd"></xsd:import>
+   </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AltaRequest">
+    <wsdl:part element="tns:Alta" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="AltaResponse">
+    <wsdl:part element="tns:AltaResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NotificacionRequest">
+  	<wsdl:part name="parameters" element="tns:Notificacion"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NotificacionResponse">
+  	<wsdl:part name="parameters" element="tns:NotificacionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelacionRequest">
+  	<wsdl:part name="parameters" element="tns:Cancelacion"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelacionResponse">
+  	<wsdl:part name="parameters" element="tns:CancelacionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GestionSolicitudes">
+    <wsdl:operation name="Alta">
+      <wsdl:input message="tns:AltaRequest"/>
+      <wsdl:output message="tns:AltaResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="Notificacion">
+    	<wsdl:input message="tns:NotificacionRequest"></wsdl:input>
+    	<wsdl:output message="tns:NotificacionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancelacion">
+    	<wsdl:input message="tns:CancelacionRequest"></wsdl:input>
+    	<wsdl:output message="tns:CancelacionResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestionSolicitudesSOAP" type="tns:GestionSolicitudes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Alta">
+      <soap:operation soapAction="http://www.example.org/GestionSolicitudes/Alta"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Notificacion">
+      <soap:operation soapAction="http://www.example.org/GestionSolicitudes/Notificacion"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancelacion">
+      <soap:operation soapAction="http://www.example.org/GestionSolicitudes/Cancelacion"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionSolicitudes">
+    <wsdl:port binding="tns:GestionSolicitudesSOAP" name="GestionSolicitudesSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:wsdl>
+    <con:dependencies>
+        <con:schemaRef isInclude="false" schemaLocation="GestionSolicitudes.xsd" namespace="http://www.example.org/GestionSolicitudes/" ref="Services/GestionSolicitudes/Interface/GestionSolicitudes"/>
+    </con:dependencies>
+    <con:targetNamespace>http://www.example.org/GestionSolicitudes/</con:targetNamespace>
+</con:wsdlEntry>

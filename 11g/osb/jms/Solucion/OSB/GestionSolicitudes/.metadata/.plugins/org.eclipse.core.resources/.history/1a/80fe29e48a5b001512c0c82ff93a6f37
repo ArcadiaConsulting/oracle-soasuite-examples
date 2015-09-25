@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="Services/GestionSolicitudes/Interface/GestionErrores"/>
+      <con:binding>
+        <con:name>GestionErroresSOAP</con:name>
+        <con:namespace>http://www.example.org/GestionErrores/</con:namespace>
+      </con:binding>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>local</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:inbound-properties/>
+    <tran:all-headers>true</tran:all-headers>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-3349434600510980129-789690f6.14f975328f2.-7c9b">
+    <con:pipeline type="request" name="ErrorPipelainPairNode_request">
+      <con:stage name="Validation" errorHandler="_onErrorHandler-3349434600510980129-789690f6.14f975328f2.-7ec1">
+        <con:context/>
+        <con:actions>
+          <con1:validate>
+            <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7ed0</con2:id>
+            <con1:schema ref="Services/GestionSolicitudes/Interface/GestionErrores"/>
+            <con1:schemaElement xmlns:ges="http://www.example.org/GestionErrores/">ges:Error</con1:schemaElement>
+            <con1:varName>body</con1:varName>
+            <con1:location>
+              <con2:xpathText>./*</con2:xpathText>
+            </con1:location>
+          </con1:validate>
+        </con:actions>
+      </con:stage>
+      <con:stage name="stage1">
+        <con:context/>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="ErrorPipelainPairNode_response"/>
+    <con:pipeline type="request" name="DefaultPipelinePairNode_request">
+      <con:stage name="stage1">
+        <con:context>
+          <con2:userNsDecl namespace="http://www.example.org/GestionErrores/" prefix="ges"/>
+        </con:context>
+        <con:actions>
+          <con1:replace varName="body" contents-only="true">
+            <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7f03</con2:id>
+            <con1:location>
+              <con2:xpathText>.</con2:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con2:xqueryText><![CDATA[<ges:ErrorResponse>
+	<codigo>0001</codigo>
+    <descripcion>Operación no soportada</descripcion>
+</ges:ErrorResponse>]]></con2:xqueryText>
+            </con1:expr>
+          </con1:replace>
+          <con2:reply>
+            <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7ee6</con2:id>
+          </con2:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="DefaultPipelinePairNode_response"/>
+    <con:pipeline type="error" name="_onErrorHandler-3349434600510980129-789690f6.14f975328f2.-7ec1">
+      <con:stage name="errorresponse">
+        <con:context>
+          <con2:userNsDecl namespace="http://www.example.org/GestionErrores/" prefix="ges"/>
+        </con:context>
+        <con:actions>
+          <con1:replace varName="body" contents-only="true">
+            <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7ea5</con2:id>
+            <con1:location>
+              <con2:xpathText>.</con2:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con2:xqueryText><![CDATA[<ges:ErrorResponse>
+	<codigo>0002</codigo>
+    <descripcion>Error de validación</descripcion>
+</ges:ErrorResponse>]]></con2:xqueryText>
+            </con1:expr>
+          </con1:replace>
+          <con2:reply>
+            <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7e8c</con2:id>
+          </con2:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-3349434600510980129-789690f6.14f975328f2.-7cf5">
+      <con:stage name="stage1">
+        <con:context>
+          <con2:userNsDecl namespace="http://www.example.org/GestionErrores/" prefix="ges"/>
+        </con:context>
+        <con:actions>
+          <con1:replace varName="body" contents-only="true">
+            <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7ce5</con2:id>
+            <con1:location>
+              <con2:xpathText>.</con2:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con2:xqueryText><![CDATA[<ges:ErrorResponse>
+	<codigo>0003</codigo>
+    <descripcion>Error en la entrega del mensaje</descripcion>
+</ges:ErrorResponse>]]></con2:xqueryText>
+            </con1:expr>
+          </con1:replace>
+          <con2:reply>
+            <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7cd3</con2:id>
+          </con2:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-3349434600510980129-789690f6.14f975328f2.-7c9b">
+      <con:stage name="stage1">
+        <con:context>
+          <con2:userNsDecl namespace="http://www.example.org/GestionErrores/" prefix="ges"/>
+        </con:context>
+        <con:actions>
+          <con1:replace varName="body" contents-only="true">
+            <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7c67</con2:id>
+            <con1:location>
+              <con2:xpathText>.</con2:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con2:xqueryText><![CDATA[<ges:ErrorResponse>
+	<codigo>0004</codigo>
+    <descripcion>Error interno no definido</descripcion>
+</ges:ErrorResponse>]]></con2:xqueryText>
+            </con1:expr>
+          </con1:replace>
+          <con2:reply>
+            <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7c52</con2:id>
+          </con2:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:branch-node type="operation" name="BranchNode1">
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="Error">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="ErrorPipelainPairNode">
+                <con:request>ErrorPipelainPairNode_request</con:request>
+                <con:response>ErrorPipelainPairNode_response</con:response>
+              </con:pipeline-node>
+              <con:route-node name="RouteNode1" error-handler="_onErrorHandler-3349434600510980129-789690f6.14f975328f2.-7cf5">
+                <con:context/>
+                <con:actions>
+                  <con3:route>
+                    <con2:id>_ActionId-3349434600510980129-789690f6.14f975328f2.-7cf6</con2:id>
+                    <con3:service ref="Services/GestionSolicitudes/Business/GestionErrores-Bs" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                    <con3:operation>Error</con3:operation>
+                    <con3:outboundTransform/>
+                    <con3:responseTransform/>
+                  </con3:route>
+                </con:actions>
+              </con:route-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow>
+              <con:pipeline-node name="DefaultPipelinePairNode">
+                <con:request>DefaultPipelinePairNode_request</con:request>
+                <con:response>DefaultPipelinePairNode_response</con:response>
+              </con:pipeline-node>
+            </con:flow>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

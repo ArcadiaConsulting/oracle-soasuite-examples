@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/typesystem/config" xmlns:jms="http://www.bea.com/wli/sb/transports/jms" xmlns:con1="http://www.bea.com/wli/sb/pipeline/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="Mixed" xsi:type="con1:MixedBindingType" xmlns:con1="http://www.bea.com/wli/sb/services/bindings/config">
+      <con1:request type="XML">
+        <con:schema ref="Services/GestionSolicitudes/Interface/GestionSolicitudes" element="Notificacion"/>
+      </con1:request>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>jms</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>jms://localhost:30100/GestionSolicitudesCF/NotificacionesJMSQueue</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <jms:is-queue>true</jms:is-queue>
+      <jms:is-secure>false</jms:is-secure>
+      <jms:inbound-properties>
+        <jms:response-required>false</jms:response-required>
+        <jms:XA-required>false</jms:XA-required>
+        <jms:transaction-timeout>600</jms:transaction-timeout>
+      </jms:inbound-properties>
+      <jms:dispatch-policy>NotificacionJMS_WorkManager</jms:dispatch-policy>
+      <jms:request-encoding>UTF-8</jms:request-encoding>
+      <jms:jndi-timeout>0</jms:jndi-timeout>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router>
+    <con1:pipeline type="request" name="PipelinePairNode11_request">
+      <con1:stage name="getDelay1">
+        <con1:context/>
+        <con1:actions>
+          <con3:assign varName="delay">
+            <con2:id>_ActionId-6192731506581624542-46df2b05.14fd0206ec8.-7f8e</con2:id>
+            <con3:expr>
+              <con2:xqueryText>fn:doc('/opt/app/aplsoft/app_OSB/conf_apli/DelayProperties.xml')/DelayProperties/delayNot/text()</con2:xqueryText>
+            </con3:expr>
+          </con3:assign>
+        </con1:actions>
+      </con1:stage>
+      <con1:stage name="delay1">
+        <con1:context/>
+        <con1:actions>
+          <con3:javaCallout varName="">
+            <con2:id>_ActionId-6192731506581624542-46df2b05.14fd0206ec8.-7f1f</con2:id>
+            <con3:archive ref="Resources/java/ConfigurableDelay"/>
+            <con3:className>com.ac.spain.osb.delay.Delay</con3:className>
+            <con3:method>public static void delayNot(java.lang.Integer)</con3:method>
+            <con3:expr>
+              <con2:xqueryText>$delay</con2:xqueryText>
+            </con3:expr>
+          </con3:javaCallout>
+        </con1:actions>
+      </con1:stage>
+    </con1:pipeline>
+    <con1:pipeline type="response" name="PipelinePairNode11_response">
+      <con1:stage name="validacion de la respuesta">
+        <con1:context>
+          <con2:userNsDecl namespace="http://www.example.org/GestionSolicitudes/" prefix="ges"/>
+        </con1:context>
+        <con1:actions>
+          <con3:ifThenElse>
+            <con2:id>_ActionId-5743496285737657541-6e5eff2e.14d6b80b4ff.-798f</con2:id>
+            <con3:case>
+              <con3:condition>
+                <con2:xqueryText>$body/ges:NotificacionResponse/codigo!='0000'</con2:xqueryText>
+              </con3:condition>
+              <con3:actions>
+                <con4:log>
+                  <con2:id>_ActionId-5743496285737657541-6e5eff2e.14d6b80b4ff.-795a</con2:id>
+                  <con4:logLevel>debug</con4:logLevel>
+                  <con4:expr>
+                    <con2:xqueryText>'Error en la operacion'</con2:xqueryText>
+                  </con4:expr>
+                </con4:log>
+              </con3:actions>
+            </con3:case>
+            <con3:default/>
+          </con3:ifThenElse>
+        </con1:actions>
+      </con1:stage>
+    </con1:pipeline>
+    <con1:pipeline type="error" name="_onErrorHandler-5743496285737657541-6e5eff2e.14d6b80b4ff.-7a82">
+      <con1:stage name="stage1">
+        <con1:context/>
+        <con1:actions>
+          <con4:log>
+            <con2:id>_ActionId-5743496285737657541-6e5eff2e.14d6b80b4ff.-79ab</con2:id>
+            <con4:logLevel>debug</con4:logLevel>
+            <con4:expr>
+              <con2:xqueryText>'Error al entregar el mensaje'</con2:xqueryText>
+            </con4:expr>
+          </con4:log>
+        </con1:actions>
+      </con1:stage>
+    </con1:pipeline>
+    <con1:flow>
+      <con1:pipeline-node name="PipelinePairNode11">
+        <con1:request>PipelinePairNode11_request</con1:request>
+        <con1:response>PipelinePairNode11_response</con1:response>
+      </con1:pipeline-node>
+      <con1:route-node name="RouteNode1" error-handler="_onErrorHandler-5743496285737657541-6e5eff2e.14d6b80b4ff.-7a82">
+        <con1:context/>
+        <con1:actions>
+          <con3:route xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+            <con2:id>_ActionId-5743496285737657541-6e5eff2e.14d6b80b4ff.-79c7</con2:id>
+            <con3:service ref="Services/GestionSolicitudes/Business/AltaNotificacion-Bs" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>Notificacion</con3:operation>
+            <con3:outboundTransform/>
+            <con3:responseTransform/>
+          </con3:route>
+        </con1:actions>
+      </con1:route-node>
+    </con1:flow>
+  </ser:router>
+</xml-fragment>

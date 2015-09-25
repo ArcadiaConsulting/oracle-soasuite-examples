@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="GestionSolicitudes"
+     targetNamespace="http://www.example.org/GestionSolicitudes/"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="http://www.example.org/GestionSolicitudes/"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    >
+    <plnk:partnerLinkType name="Alta">
+        <plnk:role name="GestionSolicitudes" portType="tns:GestionSolicitudes"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://www.example.org/GestionSolicitudes/" location="GestionSolicitudes.wsdl"/>
+</wsdl:definitions>
